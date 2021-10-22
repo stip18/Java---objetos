@@ -1,32 +1,30 @@
-//Objetos
-const cuaderno = {
-    color:"azul",
-    marca:"Stanford",
-    precio:"5",
-    detalle:"doble reglon"
+
+const objeto1 = { id: 1, producto: "Pilsen"};
+const array = [objeto1, {id: 2, producto: "Cristal"}];
+array.push({id: 3, producto: "Cusqueña"});
+
+const productos = [{ id: 1, producto: "Pilsen"},
+                  { id: 2, producto: "Cristal"},
+                  { id: 3, producto: "Cusqueña"}];
+
+for (const producto of productos){
+    console.log (producto.id);
+    console.log (producto.producto);
+}  
+
+class Producto{
+    constructor(nombre, precio){
+        this.nombre = nombre.toUpperCase();
+        this.precio = parseFloat(precio);
+        this.vendido = false;
+    }
+    sumaIva(){
+        this.precio = this.precio * 1.21;
+    }
 }
-console.log(cuaderno);
-console.log(cuaderno.marca);
-console.log(cuaderno["color"]);
-cuaderno.precio=10;
-console.log(cuaderno);
+const Productos = [];
+Productos.push (new Producto("Pilsen", "5"));
+Productos.push (new Producto("Cristal", "5"));
+Productos.push (new Producto("Cusqueña", "6"));
 
-//funtion
-function Celular(marca, modelo, color, precio){
-    this.marca = marca;
-    this.modelo=modelo;
-    this.color=color;
-    this.precio=precio;
-}
 
-let celu1 = new Celular("Sansung", "A30", "Azul", "600");
-console.log(celu1);
-
-let miMarca = prompt("Ingresa la marca de tu celular");
-let miModelo = prompt("Ingresa el modelo de tu celular");
-let miColor = prompt("Ingresa el color de tu celular");
-let miPrecio = prompt("Ingresa el precio de tu celular");
-
-let miCelu = new Celular(miMarca,miModelo,miColor,miPrecio);
-console.log("Tu Celu:" + miCelu.marca);
-console.log(miCelu);
